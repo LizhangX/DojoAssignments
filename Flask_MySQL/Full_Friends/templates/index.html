@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Full Friends</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="../static/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <div>
+            <h1>Friends:</h1>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Friend Since</th>
+                </tr>
+                {% for friend in friends %}
+                    <tr>
+                        <td>{{friend.name}}</td>
+                        <td>{{friend.age}}</td>
+                        <td>{{friend.created_at.strftime('%-d %B %Y')}}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+            <h1>Add a friend:</h1>
+            <form action="/add_friend" method="post">
+                <label for="name">Name: </label>
+                <input type="text" name="name" value="">
+                <p></p>
+                <label for="age">Age: </label>
+                <input type="number" name="age" value="">
+                <p></p>
+                <input type="submit" name="" value="submit">
+            </form>
+        </div>
+    </body>
+</html>

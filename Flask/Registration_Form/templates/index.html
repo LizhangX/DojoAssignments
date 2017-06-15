@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Registration Form</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="../static/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <div>
+            <h5>All fields are required.</h5>
+            {% with message = get_flashed_messages() %}
+                {% for message in message %}
+                    <p id="red">{{message}}</p>
+                {% endfor %}
+            {% endwith %}
+            <form action="/process" method="post">
+                <label for="email">Email: </label>
+                <input type="text" name="email" value="">
+                <p></p>
+                <label for="first_name">First Name: </label>
+                <input type="text" name="first_name" value="">
+                <p></p>
+                <label for="last_name">Last Name: </label>
+                <input type="text" name="last_name" value="">
+                <p></p>
+                <label for="bday">Birthday: </label>
+                <input type="date" name="bday" max="{{session['d']}}">
+                <p></p>
+                <label for="password">Password: </label>
+                <input type="password" name="password" value="">
+                <p></p>
+                <label for="password_re">Comfirm Password: </label>
+                <input type="password" name="password_re" value="">
+                <p></p>
+                <input type="submit" name="" value="Submit">
+            </form>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,63 @@
+.wrapper{
+    width: 970px;
+    background-color: lightgray;
+    padding: 20px;
+    border: 2px solid black;    
+}
+
+#firstBox{
+    padding-left: 10px;
+}
+
+#firstBox p{
+    display: inline-block;
+    vertical-align: middle;
+    /*background-color: lightcoral;*/
+}
+
+#firstBox p:nth-child(2){
+    padding-left: 10px;
+    width: 50px;
+    border: 2px solid black;
+}
+
+.Box{
+    padding: 10px;
+    text-align: center;
+    width: 195px;
+    height: 180px;
+    /*background-color: lightgray;*/
+    border: 2px solid black;    
+    display: inline-block;
+    vertical-align: top;
+    margin: 10px;
+}
+
+#thirdBox{
+    padding-left: 10px;
+}
+
+#logBox{
+    border: 1px solid black;
+    width: 935px;
+    height: 200px;
+    overflow: scroll;
+    padding: 0px 0px 20px 10px;
+}
+
+#logBox p{
+    color: green;
+}
+p#red{
+    color: red;
+}
+
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 7px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, .5);
+  -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+}
