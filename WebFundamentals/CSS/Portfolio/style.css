@@ -1,0 +1,104 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+/*html{
+text-align: center;
+}*/
+
+.wrapper{
+    background-color: #5B4651;
+    width: 1000px;
+}
+
+.header{
+    background-color: white;
+    padding: 10px;
+}
+
+.header p{
+    display: inline-block;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+#rightPart{
+    font-size: 20px;
+    float: right;
+    margin: 15px;
+}
+
+.first_block, .second_block{
+    padding: 10px;
+}
+
+#photo_of_me{
+    width: 450px;
+    border: 5px solid gray;
+    display: inline-block;
+    margin: 10px 10px;
+    vertical-align: top;
+}
+
+.about{
+    width: 460px;
+    height: 306.05px;
+}
+
+h2, h3{
+    background-color: gray;
+    color: white;
+    padding: 5px 10px;
+}
+
+p{
+    margin: 10px;
+}
+
+.about, .LaMode, .FamilyContacts, .fiveEleven{
+    display: inline-block;
+    margin: 10px 10px;
+    vertical-align: top;
+    background: linear-gradient(to right, white, gray);
+} 
+
+.LaMode, .FamilyContacts, .fiveEleven{
+    width: 300px;
+}
+
+.image_mid{
+    width: 300px;
+}
+
+.image img{
+    width: 45px;
+    margin: 5px;
+}
+
+.content_block{
+    height: 168px;
+}
+
+h3{
+    align-content: 
+}
+
+button{
+    background-color: green;
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+    display: block;
+    margin: 5px auto 10px auto;
+}
+
+.footer{
+    background-color: white;
+    text-align: center;
+}
+
+.links img{
+    vertical-align: middle;
+    width: 20px;
+}

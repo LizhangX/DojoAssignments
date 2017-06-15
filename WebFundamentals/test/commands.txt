@@ -1,0 +1,15 @@
+cd
+
+mkdir
+
+touch
+
+cp
+
+rm
+
+mv
+
+ls
+
+rm -r
