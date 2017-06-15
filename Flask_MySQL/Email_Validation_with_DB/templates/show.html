@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>show_email</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <div>
+            <div>
+                <p>The email address you entered {{email_db[0].email}} is a VALID emil address! Thank you!</p>
+            </div>
+            <div>
+                <h3>Email address entered:</h3>
+                {% for item in email_db %}
+                    {% if item.entered_at != none%}
+                        <p>{{item.email}} {{item.entered_at}}</p>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </body>
+</html>
