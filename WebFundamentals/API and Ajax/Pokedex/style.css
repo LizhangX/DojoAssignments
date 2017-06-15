@@ -1,0 +1,16 @@
+div{
+   display: inline-block;
+   vertical-align: top; 
+}
+
+#left{
+    width: 600px;
+}
+
+#right{
+    padding-left: 30px;
+    position: fixed;
+    width: 200px;
+    height: 450px;
+    border: 10px solid red;
+}

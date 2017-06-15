@@ -1,0 +1,114 @@
+<!doctype html>
+<!--Create a fake blog using only HTML. Your blog can be about anything! 
+Your hobbies, your favorite sports team/player, your favorite tv show, etc. 
+Your blog can look however you want it to look, but your document should use 
+the following tags at the least:
+
+HTML head, title, meta description,  body, div, a, p, h1, ul, li, table (including thead, td, tbody, tr) 
+At the bottom of the page, create a fake survey form that uses the following tags:
+form, select, input type="text", input type="checkbox", input type="radio", input type="submit".
+You can use one of the Lorem Ipsum generators for dummy text. Here is an example of how you may 
+want your blog to look:-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Dim Sum</title>
+        <meta name="description" content="This is a fake blog about the famous food Dim Sum from China.">
+    </head>
+
+    <body>
+        <div id="content">
+            <h1>A Short Introduction of Dim Sum</h1>
+            <p> 
+                Dim Sum is a style of Chinese cuisine (particularly Cantonese but also other varieties) 
+                prepared as small bite-sized portions of food served in small steamer baskets or on small plates. 
+                Dim sum dishes are usually served with tea, and together form a full tea brunch. 
+                Dim sum traditionally are served as fully cooked, ready-to-serve dishes. In Cantonese teahouses, 
+                carts with dim sum will be served around the restaurant for diners to order from without leaving 
+                their seats. the Cantonese tradition of having endless cups of tea and dim sum is also called Yum Cha.
+            </p>
+            <a href="https://en.wikipedia.org/wiki/Dim_sum">Link to Wikipedia</a>
+        </div>
+
+        <h2>Signature Dim Sum List</h2>
+        <ul>
+            <li>Shrimp dumpling</li>
+            <li>Shaomai</li>
+            <li>Sweet cream buns</li>
+            <li>Phoenix claws</li>
+            <li>Spare ribs</li>
+        </ul>
+        
+        <h2>Famous Sweet Table</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Sweet Name</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Egg tart</td>
+                    <td>Baked tart with egg custard filling.</td>
+                </tr>
+                <tr>
+                    <td>Tofu pudding</td>
+                    <td>Soft tofu served with a sweet ginger or jasmine flavored syrup.</td>
+                </tr>
+                <tr>
+                    <td>Sesame ball</td>
+                    <td>Deep fried chewy dough with red bean paste filling, coated in sesame seeds.</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <!--At the bottom of the page, create a fake survey form that uses the following tags:
+form, select, input type="text", input type="checkbox", input type="radio", input type="submit".
+You can use one of the Lorem Ipsum generators for dummy text. Here is an example of how you may 
+want your blog to look:-->
+        <form>
+            <h2>Survey Form</h2>
+            
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name">
+
+            <p>Your Gender</p>
+            <select name="gender" id="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+
+            <p>Which signarue Dim Sum you would like to try? (You can choose all!)</p>
+            <label for="shrimp_dumpling">Shrimp dumpling</label>
+            <input type="checkbox" id="shrimp_dumpling" name="dim_sum" value="shrimp_dumpling">
+
+            <label for="shaomai">Shaomai</label>
+            <input type="checkbox" id="shaomai" name="dim_sum" value="Shaomai">
+
+            <label for="sweet_cream_buns">Sweet cream buns</label>
+            <input type="checkbox" id="sweet_cream_buns" name="dim_sum" value="sweet_cream buns">
+
+            <label for="phoenix_claws">Phoenix claws</label>
+            <input type="checkbox" id="phoenix_claws" name="dim_sum" value="phoenix_claws">
+
+            <label for="spare_ribs">Spare ribs</label>
+            <input type="checkbox" id="spare_ribs" name="dim_sum" value="spare_ribs">
+
+            <p>Which one of the sweet you would like to try?</p>   
+            <label for="egg_tart">Egg Tart</label>
+            <input type="radio" id="egg_tart" name="dim_sum" value="egg_tart">
+
+            <label for="tofu_pudding">Tofu pudding</label>
+            <input type="radio" id="tofu_pudding" name="dim_sum" value="tofu_pudding">
+
+            <label for="sesame_ball">Sesame ball</label>
+            <input type="radio" id="sesame_ball" name="dim_sum" value="sesame_ball">
+
+            <input type="submit" value="Submit">
+
+
+        </form>
+    </body>
+</html>
