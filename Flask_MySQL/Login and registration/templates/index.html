@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>log in/ register</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="../static/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <div>
+            <div>
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <p>{{message}}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </div>
+
+            <div id="log_in">
+                <form action="/login" method="post" >
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" value="">
+                    <p></p>
+                    <label for="password">Password</label>
+                    <input type="password" name="password" value="">
+                    <p></p>
+                    <input type="submit" name="" value="Login">
+                </form>
+            </div>
+            <div id="registration">
+                <form action="/register" method="post">
+                    <label for="fname">First Name: </label>
+                    <input type="text" name="fname" value="">
+                    <p></p>
+                    <label for="lname">Last Name: </label>
+                    <input type="text" name="lname" value="">
+                    <p></p>
+                    <label for="email">Email: </label>
+                    <input type="email" name="email" value="">
+                    <p></p>
+                    <label for="password">Password: </label>
+                    <input type="password" name="password" value="">
+                    <p></p>
+                    <label for="password_c">Comfirm password: </label>
+                    <input type="password" name="password_c" value="">
+                    <p></p>
+                    <input type="submit" name="" value="Register">
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
