@@ -7,8 +7,9 @@
         <link href="../static/style.css" rel="stylesheet">
     </head>
     <body>
-        <div>
-            <div>
+        <div id="wrapper">
+            <div id="msg">
+                <h2>LOGIN and REGISTRATION</h2>
                 {% with messages = get_flashed_messages() %}
                     {% if messages %}
                         {% for message in messages %}
@@ -18,12 +19,12 @@
                 {% endwith %}
             </div>
 
-            <div id="log_in">
+            <div id="login">
                 <form action="/login" method="post" >
                     <label for="email">Email:</label>
                     <input type="email" name="email" value="">
                     <p></p>
-                    <label for="password">Password</label>
+                    <label for="password">Password:</label>
                     <input type="password" name="password" value="">
                     <p></p>
                     <input type="submit" name="" value="Login">

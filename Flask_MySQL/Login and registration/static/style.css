@@ -1,0 +1,21 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+#wrapper{
+    margin: 100px 0px 0px 200px;
+    width: 500px;
+    border: 3px solid green;
+    padding: 20px;
+}
+
+#msg, #login, #registration, #welcome{
+    border: 2px solid black;
+    margin: 20px;
+    padding: 20px;
+}
+
+#msg p{
+    color: red;
+}
