@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Books</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% load static %}
+        <link href='{% static 'full_stack_books_app/css/style.css' %}' rel="stylesheet">
+    </head>
+    <body>
+        <div>
+            <table>
+                    <tr>
+                        <th>id</th>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Category</th>
+                    </tr>
+                {% for book in books %}
+                    <tr>
+                        <td>{{book.id}}</td>
+                        <td>{{book.title}}</td>
+                        <td>{{book.author}}</td>
+                        <td>{{book.category}}</td>
+                    </tr>
+                {% endfor %}
+                    
+            </table>
+        </div>
+        <div>
+            <h1>Add a Book</h1>
+            <form action="/process" method="post">
+                {% csrf_token %}
+                <label for="title">Title: </label>
+                <input id="title" type="text" name="title" value="">
+                <p></p>
+                <label for="category">Category: </label>
+                <input type="text" name="category" value="">
+                <label for="author">Author: </label>
+                <input type="text" name="author" value="">
+                <p></p>
+                <input type="submit" name="" value="Sumit!">
+            </form>
+        </div>
+    </body>
+</html>
