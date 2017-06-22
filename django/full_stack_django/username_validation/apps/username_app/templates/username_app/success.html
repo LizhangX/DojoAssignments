@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Username Validator</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% load static %}
+        <link href='{% static 'username_app/css/style.css' %}' rel="stylesheet">    
+    </head>
+    <body>
+        <div>
+            <p>The username you entered {{usernames.last.name}} is valid. Thank you.</p>
+        </div>
+        <h3>Username entered</h3>
+        <table>
+            
+            {% for username in usernames %}
+                <tr>
+                    <td>{{username.name}}</td>
+                    <td>{{username.created_at}}</td>
+                </tr>
+            {% endfor %}
+                
+        </table>
+    </body>
+</html>

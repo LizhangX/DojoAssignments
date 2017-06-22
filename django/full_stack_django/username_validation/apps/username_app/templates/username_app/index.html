@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>User Validator</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% load static %}
+        <link href='{% static 'username_app/css/style.css' %}' rel="stylesheet">
+    </head>
+    <body>
+        
+        {% if request.session.error == 1 %}
+            <p>Username is not valid!</p>
+        {% endif %}
+            
+        <form action="/process" method="post">
+            {% csrf_token %}
+            <label for="name">name</label>
+            <input type="text" name="name" value="">
+            <p></p>
+            <input type="submit" name="" value="Submit">
+        </form>
+    </body>
+</html>
