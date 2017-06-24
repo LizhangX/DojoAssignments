@@ -17,7 +17,6 @@ class UserManager(models.Manager):
             errors.append('Password: Required; No fewer than 8 characters in length.')
         if form_data['confirm_pw'] != form_data['password']:
             errors.append('Password does not match pass word confirmation.')
-        
         return errors
 
     def login(self, form_data):
@@ -49,7 +48,6 @@ class User(models.Model):
 
     def __str__(self):
         display = "first_name: {}, last_name: {}, email = {}".format(self.first_name, self.last_name, self.email)
-
         return display
     
     objects = UserManager()
