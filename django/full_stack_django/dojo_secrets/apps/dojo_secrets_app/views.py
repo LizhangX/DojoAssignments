@@ -78,7 +78,6 @@ def success(request):
 
 def postSecret(request):
     print 'inside post_secret'
-    
     Secret.objects.create(secret=request.POST['postSecret'], user_id = request.session['user_id'])
     return redirect(reverse('success'))
 
@@ -93,12 +92,15 @@ def like(request, secret_id, location):
         return redirect(reverse('popular'))
 
 def delete(request, secret_id, location):
-    Secret.objects.filter(id = secret_id).first().delete()
-    if location == '1':
-        return redirect(reverse('success'))
-    if location == '2':
-        return redirect(reverse('popular'))
-
+    secret = Secret.objects.filter(id=secret_id).first()
+    if secret.user_id == request.session['user_id']:
+        Secret.objects.filter(id = secret_id).first().delete()
+        if location == '1':
+            return redirect(reverse('success'))
+        if location == '2':
+            return redirect(reverse('popular'))
+    else:
+        return redirect(reverse('index'))
 def popular(request):
     user_id = request.session['user_id']
     user = User.objects.get(id=user_id)
