@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Books Home</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--<link href="css/style.css" rel="stylesheet">-->
+    </head>
+    <body>
+        <h1>Welcome, {{current_user.first_name}}!</h1>
+        <a href="{% url 'display_add' %}">Add Book and Review</a>
+        <a href="{% url 'logout' %}">Logout</a>
+        
+        {% for i in all_user %}
+            <p>{{i.email}}</p>
+        {% endfor %}
+            
+        <div>
+            <h3>Recent Book Reviews: </h3>
+            <!--for loop to diplay latest 3 reviews(book_name, rating, review)-->
+            
+            {% for i in recent_reviews %}
+                <hr>
+                <p><a href="{% url 'book' book_id=i.book.id %}">{{i.book.title}}</a></p>
+                <p>Author: {{i.book.author.name}}</p>
+                <p>rating: {{i.rating}}</p>
+                <p><a href="{% url 'view_user' user_id=i.user.id %}">{{i.user.first_name}}</a> says {{i.review}}</p>
+                <p>Posted on {{i.created_at}}</p>
+            {% endfor %}
+                
+        </div>
+        <div>
+            <hr>
+            <h3>Other Books with Reviews: </h3>  
+            <!--for loop to display other reviews' name-->
+            {% for i in other_reviews %}
+                <p><a href="{% url 'book' book_id=i.id %}">{{i.title}}</a></p>
+            {% endfor %}
+        </div>
+    </body>
+</html>

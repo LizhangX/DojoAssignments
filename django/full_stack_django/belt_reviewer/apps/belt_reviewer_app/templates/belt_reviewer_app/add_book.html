@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Add Book and Review</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--<link href="css/style.css" rel="stylesheet">-->
+    </head>
+    <body>
+        <a href="{% url 'success' %}">Home</a>
+        <a href="{% url 'logout' %}">Logout</a>
+        <div>
+            <h3>Add a New Book Title and a Review: </h3>
+            <form action="{% url 'add' %}" method="post">
+                {% csrf_token %}
+                <label for="title">Book Title:</label>
+                <input type="text" name="title" value="">
+                <p></p>
+                <label for="author">Author:</label>
+                <p>Choose from the list:</p>
+                <p></p>
+                <select name="ex_author">
+                    <!--for loop of option tag to give all authors in the database-->
+                    <option value="">Choose your Authors</option>
+                    {% for i in authors %}
+                        <option value="{{i.name}}">{{i.name}}</option>
+                    {% endfor %}
+                        
+                </select>
+                <p>Or add a new author:</p>
+                <input type="text" name="author" value="">
+                <p></p>
+                <label for="review">Review</label>
+                <textarea name="review" rows="" cols=""></textarea>
+                <p></p>
+                <label for="rating">Rating:</label>
+                <select name="rating">
+                    <option value="5">5</option>
+                    <option value="4">4</option>
+                    <option value="3">3</option>
+                    <option value="2">2</option>
+                    <option value="1">1</option>
+                </select>
+                stars.
+                <p></p>
+                <input type="submit" name="" value="Add Book and Review">
+            </form>
+        </div>
+    </body>
+</html>

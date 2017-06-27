@@ -3,11 +3,11 @@ from __future__ import unicode_literals
 from django.db import models
 import re
 import bcrypt
-EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
 # Create your models here.
 class UserManager(models.Manager):
     def register(self, form_data):
         errors = []
+        EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
         if len(form_data['fname']) == 0:
             errors.append('First name required.')
         if len(form_data['lname']) == 0:

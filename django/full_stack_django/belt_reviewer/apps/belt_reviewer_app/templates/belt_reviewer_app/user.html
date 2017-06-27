@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>User Reviews</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--<link href="css/style.css" rel="stylesheet">-->
+    </head>
+    <body>
+        <a href="{% url 'success' %}">Home</a>
+        <a href="{% url 'display_add' %}">Add Book and Reviews</a>
+        <a href="{% url 'logout' %}">Logout</a>
+        <div>
+            <h3>User Alias: {{user.first_name}}</h3>
+            <p>Name: {{user.last_name}}</p>
+            <p>Email: {{user.email}}</p>
+            <p>Total Reviews: {{user.reviews.all|length}}</p>
+        </div>
+        <div>
+            <h3>Posted Reviews on the following books:</h3>
+            <!--for loop for all user's reviews-->
+            
+            {% for i in books %}
+                <p><a href="{% url 'book' book_id=i.id %}">{{i.title}}</a></p>
+            {% endfor %}
+                
+        </div>
+    </body>
+</html>
