@@ -1,0 +1,42 @@
+h1{
+    margin: 20px;
+}
+
+.lr_form{
+    border: 3px solid green;
+    display: inline-block;
+    vertical-align: top;
+    padding: 20px;
+    margin: 20px;
+}
+
+.lr_form input{
+    margin-left: 3px;
+    float: right;
+}
+
+.lr_form h2{
+    color: green
+}
+
+#error{
+    margin: 20px;
+    color: red;
+}
+
+table {
+    border-collapse: collapse;
+    width: 700px;
+    margin: 20px;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #4CAF50;
+    color: white;

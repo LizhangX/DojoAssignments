@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Travel Dashboard</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="../../static/python_belt_app/css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Welcome {{current_user.username}}!</h1>
+        <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <input type="submit" name="" value="Logout">
+        </form>
+        <div>
+            <p>Your Trip Schedules</p>
+            <table>
+                <thead>
+                    <th>Destination</th>
+                    <th>Travel Start Date</th>
+                    <th>Travel End Date</th>
+                    <th>Plan</th>
+                </thead>
+                <tbody>
+                    <!--for loop to out put all the schedules-->
+                    
+                    {% for plan in created_plan %}
+                        <tr>
+                            <td><a href="{% url 'destination' plan_id=plan.id %}">{{plan.destination}}</a></td>
+                            <td>{{plan.date_from|date:"M d Y"}}</td>
+                            <td>{{plan.date_to|date:"M d Y"}}</td>
+                            <td>{{plan.description}}</td>
+                        </tr>
+                    {% endfor %}
+                    
+                    {% for plan in joined_plan %}
+                        <tr>
+                            <td><a href="{% url 'destination' plan_id=plan.id %}">{{plan.destination}}</a></td>
+                            <td>{{plan.date_from|date:"M d Y"}}</td>
+                            <td>{{plan.date_to|date:"M d Y"}}</td>
+                            <td>{{plan.description}}</td>
+                        </tr>
+                    {% endfor %}
+                    
+                        
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <p>Other User's Travel Plans</p>
+            <table>
+                <thead>
+                    <th>Name</th>
+                    <th>Destination</th>
+                    <th>Travel Start Date</th>
+                    <th>Travel End Date</th>
+                    <th>Do you want to join?</th>
+                </thead>
+                <tbody>
+                    <!--for loop to out put all the schedules-->
+                    {% for plan in not_joined_plan %}
+                        <tr>
+                            <td>{{plan.created_by.name}}</td>
+                            <td><a href="{% url 'destination' plan_id=plan.id %}">{{plan.destination}}</a></td>
+                            <td>{{plan.date_from|date:"M d Y"}}</td>
+                            <td>{{plan.date_to|date:"M d Y"}}</td>
+                            <td><a href="{% url 'join' plan_id=plan.id %}">Join</a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <a href="{% url 'display_add' %}">Add Travel Plan</a>
+    </body>
+</html>

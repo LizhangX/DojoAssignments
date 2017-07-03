@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="../../static/python_belt_app/css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <a href="{% url 'success' %}">Home</a>
+        <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <input type="submit" name="" value="Logout">
+        </form>
+        <div>
+            {% for error in plan_errors %}
+                <p>***{{error}}***</p>
+            {% endfor %}  
+            <h1>Add a Trip</h1>
+            <form action="{% url 'add_plan' %}" method="post">
+                {% csrf_token %}
+                <label for="">Destination:</label>
+                <input type="text" name="destination" value="">
+                <p></p>
+                <label for="">Description: </label>
+                <input type="text" name="description" value="">
+                <p></p>
+                <label for="">Travel Date From: </label>
+                <input type="date" name="date_from" value="">
+                <p></p>
+                <label for="">Travel Date To: </label>
+                <input type="date" name="date_to" value="">
+                <p></p>
+                <input type="submit" name="" value="Add">
+            </form>
+        </div>
+    </body>
+</html>

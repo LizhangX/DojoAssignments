@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Login/Registration</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="../../static/python_belt_app/css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <div>
+            <h1>Welcome to the belt!</h1>
+            <div id="error">
+                {% for error in errors %}
+                <p>***{{error}}***</p>
+                {% endfor %}
+            </div>
+            <form class="lr_form" action="/register" method="post" id="register">
+                {% csrf_token %}
+                <h2>Register</h2>
+                <label for="name">Name: </label>
+                <input type="text" name="name" value="">
+                <p></p>
+                <label for="username">Username: </label>
+                <input type="text" name="username" value="">
+                <p></p>
+                <label for="password">Password: </label>
+                <input type="password" name="password" value="">
+                <p></p>
+                <label for="confirm_pw">Confirm PW: </label>
+                <input type="password" name="confirm_pw" value="">
+                <p></p>
+                <input type="submit" name="" value="Register">
+            </form>
+            <form class="lr_form" action="/login" method="post" id="login">
+                {% csrf_token %}
+                <h2>Login</h2>
+                <label for="username">Username: </label>
+                <input type="text" name="log_username" value="">
+                <p></p>
+                <label for="log_pw">Password: </label>
+                <input type="password" name="log_pw" value="">
+                <p></p>
+                <input type="submit" name="" value="Login">            
+            </form> 
+        </div>
+        
+    </body>
+</html>

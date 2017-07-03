@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Destination</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="../../static/python_belt_app/css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <a href="{% url 'success' %}">Home</a>
+        <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <input type="submit" name="" value="Logout">
+        </form>
+        <div>
+            <h4>{{plan.destination}}</h4>
+            <p>Planned by: {{plan.created_by.name}}</p>
+            <p>Description: {{plan.description}}</p>
+            <p>Travel Date From: {{plan.date_from}}</p>
+            <p>Travel Date To: {{plan.date_to}}</p>
+        </div>
+        <div>
+            <h4>Other users' joining the trip:</h4>
+            <!--for loop to display other users-->
+            
+            {% for user in other_users %}
+                <p>{{user.name}}</p>
+            {% endfor %}
+                
+        </div>
+    </body>
+</html>
