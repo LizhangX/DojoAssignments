@@ -1,16 +1,17 @@
 function Ninja(name) {
     this.name = name;
     this.health = 100;
-    this.speed = 3;
-    this.strength = 3;
+    let speed = 3;
+    let strength = 3;
+    
+    this.showStats = function(){
+        let show = `Name: ${this.name}, Health: ${this.health}, Speed: ${speed}, Strength: ${strength}`;
+        console.log(show);
+    }
 }
 
 Ninja.prototype.sayName = function(){
     console.log(`My ninja name is ${this.name}!`);
-}
-Ninja.prototype.showStats = function(){
-    let show = `Name: ${this.name}, Health: ${this.health}, Speed: ${this.speed}, Strength: ${this.strength}`;
-    console.log(show);
 }
 Ninja.prototype.drinkSake = function(){
     this.health += 10;
