@@ -36,7 +36,7 @@ app.post('/process', function(req, res) {
     }
     else if(Number(req.body.num) < req.session.num){
         req.session.display = true;  
-        req.session.store = "Too low!"      
+        req.session.store = "Too low!";  
     }
     else{
         req.session.display = false;
@@ -47,7 +47,7 @@ app.post('/process', function(req, res) {
 
 app.post('/reset', function(req, res) {
     req.session.destroy();
-    res.redirect('/')
+    res.redirect('/');
 });
 
 
