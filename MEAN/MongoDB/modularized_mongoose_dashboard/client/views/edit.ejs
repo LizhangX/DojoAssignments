@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="/css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <p>Name: <%= messages[0].name %></p>
+        <p>Weight: <%= messages[0].weight %></p>
+        <p>Color: <%= messages[0].color %></p>
+        
+        <form action="/cats/edit/<%= messages[0].id %>" method="post">
+            <label for="">Name: </label>
+            <input type="text" name="name" value="<%= messages[0].name %>">
+            <p></p>
+            <label for="">Weight: </label>
+            <input type="number" name="weight" value="<%= messages[0].weight %>">
+            <p></p>
+            <label for="">Color: </label>
+            <input type="text" name="color" value="<%= messages[0].color %>">
+            <p></p>
+            <input type="submit" name="" value="Edit it">
+        </form>
+        <form action="/cats/destroy/<%= messages[0].id %>" method="post">
+            <input type="submit" name="" value="Delete this cat!!">
+        </form>
+    </body>
+</html>
