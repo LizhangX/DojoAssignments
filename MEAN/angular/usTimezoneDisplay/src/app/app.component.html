@@ -1,0 +1,20 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>{{title}}</h1>
+
+  <button class="box" 
+    *ngFor="let button of buttons, let idx = index" 
+    (click)="getTime(button, idx)"
+    [ngClass]="{'highlight': selected === button}">
+    <p>{{ button }}</p>
+  </button>
+
+  <button class="box" (click)="getTime('Clear',5)" ><p>Clear</p></button>
+
+  <!-- <p>{{ offset }}</p>
+  <p>{{ today | date:'medium' }}</p>
+  <p>{{ UTCtoday |date:'medium' }}</p> -->
+  <p>{{ currentTime | date: 'medium' }}</p>
+</div>
+
+
