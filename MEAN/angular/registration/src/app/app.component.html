@@ -1,0 +1,113 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div>
+  <h1>{{title}}</h1>
+  <div class="green" *ngIf="success === true">
+    <p>Thank you for registering with us {{user.fname}}. We just sent you a confirmation email at <span id="underline">{{user.email}}</span>, and we will send all mail to {{user.address}}, {{user.unit}}, {{user.city}}, {{user.state}} </p>
+    <p>Have a wonderful day!</p>
+  </div>
+  <form
+  #ngForm="ngForm"
+  >
+    <div class="regForm">
+    <h2>Account Information</h2>
+    <label>*First Name: </label>
+    <input 
+    type="text" 
+    name="fname" 
+    required
+    [(ngModel)]="user.fname"
+    #fname="ngModel"
+    >
+    <span *ngIf="!fname.valid && fname.touched">First Name required!</span>
+    <p></p>
+    <label>*Last Name: </label>
+    <input 
+    type="text" 
+    name="lname"
+    required
+    [(ngModel)]="user.lname"
+    #lname="ngModel"
+    >
+    <span *ngIf="!lname.valid && lname.touched">Last Name required!</span>
+    <p></p>
+    <label>*Email: </label>
+    <input 
+    type="email" 
+    name="email" 
+    required
+    pattern="(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)"
+    [(ngModel)]="user.email"
+    #email="ngModel"
+    >
+    <span *ngIf="!email.valid && email.touched">Email is not valid!</span>
+    <p></p>
+    <label>*Password: </label>
+    <input 
+    type="password" 
+    name="password" 
+    required 
+    minlength=3
+    [(ngModel)]="user.password"
+    #password='ngModel'
+    >
+    <span *ngIf="!password.valid && password.touched">Password must be at least 16 characters long!</span>
+    <p></p>
+    <label>*Password Comfirmation: </label>
+    <input 
+    type="password" 
+    required
+    name="password_cm"
+    [(ngModel)]="user.password_cm"
+    #password_cm="ngModel"
+    >
+    <span *ngIf="user.password_cm !== user.password && password_cm.touched">Password Comfirmation must match Password.</span>
+    <p></p>
+    <label>*Street Address: </label>
+    <input 
+    type="text" 
+    name="address" 
+    required
+    [(ngModel)]="user.address"
+    #address="ngModel"
+    >
+    <span *ngIf="!address.valid && address.touched">Address is required!</span>
+    <p></p>
+    <label>Unit/Apt #: </label>
+    <input 
+    type="text" 
+    name="unit" 
+    [(ngModel)]="user.unit"
+    #unit="ngModel"
+    >
+    <p></p>
+    <label>*City: </label>
+    <input 
+    type="text" 
+    name="city" 
+    required
+    [(ngModel)]="user.city"
+    #city="ngModel"
+    >
+    <span *ngIf="!city.valid && city.touched">City is required!</span>
+    <p></p>
+    <label>*State: </label>
+    <select 
+    name="state"
+    [(ngModel)]="user.state"
+    #state="ngModel"
+    >
+      <option value="Alaska">Alaska</option>
+      <option value="Texas">Texas</option>
+    </select>
+    <p></p>
+    <label>*I'm feeling lucky: </label>
+    <input type="radio" name="feeling" value="Yes">
+    <input type="radio" name="feeling" value="No">
+  </div>
+  <input class="submitBtn" type="button" (click)="onSubmit()" [disabled]="!ngForm.valid" value="Register">
+  </form>
+  
+
+
+</div>
+
