@@ -101,10 +101,10 @@
     </select>
     <p></p>
     <label>*I'm feeling lucky: </label>
-    <input type="radio" name="feeling" value="Yes">
-    <input type="radio" name="feeling" value="No">
+    <input type="radio" name="feeling" [(ngModel)]='user.feeling' #feeling="ngModel"  value="Yes">Yes
+    <input type="radio" name="feeling" [(ngModel)]='user.feeling' value="No">No
   </div>
-  <input class="submitBtn" type="button" (click)="onSubmit()" [disabled]="!ngForm.valid" value="Register">
+  <input class="submitBtn" type="button" (click)="onSubmit()" [disabled]="user.password!==user.password_cm || !ngForm.valid || !user.feeling" value="Register">
   </form>
   
 
