@@ -1,0 +1,49 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div>
+  <h2>Add a Quote</h2>
+  <form
+  (submit)="onSubmit(); myForm.reset()"
+  #myForm='ngForm'
+  >
+    <textarea 
+    name="quote" 
+    rows="" 
+    cols=""
+    required
+    minlength="4"
+    [(ngModel)]='quote.content'
+    #content='ngModel'
+    ></textarea>
+    <span *ngIf="!myForm.valid && !content.valid && content.touched">Quote is required. (At least 4 characters)</span>
+    <p></p>
+    <label>Author</label>
+    <input 
+    type="text" 
+    name="author"
+    required
+    [(ngModel)]='quote.author'
+    #author='ngModel'    
+    >
+    <span *ngIf="!author.valid && author.touched">Author is required.</span>
+    <p></p>
+    <input 
+    type="submit" 
+    value="Add Quote"
+    [disabled]="!myForm.valid"
+    >
+  </form>
+
+  <h2>Quotes List</h2>
+  <div class="box" *ngFor="let quote of quotes, let idx=index">
+    <p>{{quote.content}}</p>
+    <p>{{quote.author}}</p>
+    <p>{{quote.votes}}</p>
+    <button (click)="voteUp(quote)">Vote Up</button>
+    <button (click)="voteDown(quote)">Vote Down</button>
+    <button (click)="delete(quotes, idx)">Vote Delete</button>
+
+
+  </div>
+</div>
+
+

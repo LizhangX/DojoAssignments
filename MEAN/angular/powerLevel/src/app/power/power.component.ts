@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./power.component.css']
 })
 export class PowerComponent implements OnInit {
-  level: number = 0;
+  level: number;
   mylevel: number = 0;
   dropdown: number[] = [];
 
@@ -15,7 +15,7 @@ export class PowerComponent implements OnInit {
 
   constructor() {
     console.log("inside power");
-    for (var i:number = 1; i < 101; i++) {
+    for (var i = 1; i < 101; i++) {
     this.dropdown.push(i);
     };
     console.log(this.dropdown);
@@ -25,9 +25,9 @@ export class PowerComponent implements OnInit {
 
   }
 
-  setLevel(level){
-    console.log(level);
-    this.mylevel= level;
+  onSubmit(){
+    console.log(this.level);
+    this.mylevel= this.level;
     console.log(this.mylevel);
     
     
