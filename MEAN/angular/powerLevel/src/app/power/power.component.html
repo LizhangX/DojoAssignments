@@ -1,0 +1,17 @@
+<div id="power_component">
+  <p id="title">PowerComponent</p>
+  <p>Initial Power Level 
+    <select name="level"  required [(ngModel)]="level" #currentlevel="ngModel">
+      <option [value]="level">{{level}}</option>
+      <option *ngFor="let num of dropdown" [value]="num" [selected]='num == 1'>{{ num }}</option>
+    </select>
+    
+    <button (click)='setLevel(level)'>Calculate Powers</button>
+  </p>
+  <app-human class="box" [level]='mylevel'></app-human>
+  <app-saiyan class="box" [level]='mylevel'></app-saiyan>
+  <app-super-saiyan class="box" [level]='mylevel'></app-super-saiyan>
+  <app-super-saiyan-two class="box" [level]='mylevel'></app-super-saiyan-two>
+  <app-super-saiyan-three class="box" [level]='mylevel'></app-super-saiyan-three>
+  <app-super-saiyan-four class="box" [level]='mylevel'></app-super-saiyan-four>
+</div>

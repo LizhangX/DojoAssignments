@@ -1,0 +1,20 @@
+#power_component{
+    border: 2px solid black;
+    width: 700px;
+    padding: 10px;
+}
+#title{
+    margin-top: -20px;
+    padding-left: 20px;
+    background-color: white;
+    width: 150px;
+}
+.box{
+    width: 200px;
+    height: 120px;
+    padding: 10px;
+    margin-top: 20px;
+    display: inline-block;
+    border: 2px solid black;
+    vertical-align: top;
+}
