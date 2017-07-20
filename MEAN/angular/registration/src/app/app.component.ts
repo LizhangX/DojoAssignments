@@ -20,8 +20,14 @@ export class AppComponent {
     feeling: ''
   };
   success: boolean = false;
+  newUser = {};
 
   onSubmit(){
+    console.log(this.user);
+    Object.assign(this.newUser, this.user)
+    // this.user;
+    console.log(this.newUser);
+    
     this.success = true;
     
   }

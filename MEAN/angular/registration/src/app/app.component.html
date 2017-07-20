@@ -2,7 +2,7 @@
 <div>
   <h1>{{title}}</h1>
   <div class="green" *ngIf="success === true">
-    <p>Thank you for registering with us {{user.fname}}. We just sent you a confirmation email at <span id="underline">{{user.email}}</span>, and we will send all mail to {{user.address}}, {{user.unit}}, {{user.city}}, {{user.state}} </p>
+    <p>Thank you for registering with us {{newUser.fname}}. We just sent you a confirmation email at <span id="underline">{{newUser.email}}</span>, and we will send all mail to {{newUser.address}}, {{newUser.unit}}, {{newUser.city}}, {{newUser.state}} </p>
     <p>Have a wonderful day!</p>
   </div>
   <form
@@ -104,7 +104,7 @@
     <input type="radio" name="feeling" [(ngModel)]='user.feeling' #feeling="ngModel"  value="Yes">Yes
     <input type="radio" name="feeling" [(ngModel)]='user.feeling' value="No">No
   </div>
-  <input class="submitBtn" type="button" (click)="onSubmit()" [disabled]="user.password!==user.password_cm || !ngForm.valid || !user.feeling" value="Register">
+  <input class="submitBtn" type="button" (click)="onSubmit(); ngForm.reset()" [disabled]="user.password!==user.password_cm || !ngForm.valid || !user.feeling" value="Register">
   </form>
   
 
