@@ -1,0 +1,9 @@
+div h1{
+    text-align: center;
+}
+.weather, img{
+    display: inline-block;
+}
+img{
+    float: right;
+}

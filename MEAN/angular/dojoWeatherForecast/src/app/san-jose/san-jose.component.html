@@ -1,0 +1,13 @@
+<div>
+  <h1>San Jose, CA</h1>
+  <!-- {{ weather.main | json }} -->
+  <div class="weather">
+    <p>Humidity: {{ weather.main?.humidity }}</p> 
+    <p>Temperature(Average): {{ weather.main?.temp*9/5-459.67 | number:'2.2-2' }}</p> 
+    <p>Temperature(High): {{ weather.main?.temp_max*9/5-459.67 | number:'2.2-2' }}</p> 
+    <p>Temperature(Low): {{ weather.main?.temp_min*9/5-459.67 | number:'2.2-2' }}</p> 
+    <p *ngIf="weather.weather && weather.weather.length > 0">Status: {{ weather.weather[0].description }}</p>
+  </div>
+  <img src="../../assets/images/sanjose.jpeg" alt="">  
+  
+</div>
