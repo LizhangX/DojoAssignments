@@ -1,0 +1,35 @@
+<div>
+  <h2>Create a New Product</h2>
+  <form (submit)='onSubmit()' #myForm='ngForm'>
+    <label>Title: </label>
+    <input 
+    type="text" 
+    name="title"
+    required
+    minlength="4"
+    [(ngModel)]="newProduct.title"
+    #title='ngModel'
+    >
+    <span *ngIf="title.invalid && title.touched">Title is required, minimun of 4 characters.</span>
+    <p></p>
+    <label>Price: </label>
+    <input 
+    type="text" 
+    name="price"
+    required
+    [(ngModel)]="newProduct.price"
+    #price='ngModel'
+    >
+    <span *ngIf="price.invalid && price.touched">Price is required.</span>
+    <p></p>
+    <label>imgUrl: </label>
+    <input 
+    type="text" 
+    name="imgUrl"
+    [(ngModel)]="newProduct.imgUrl"
+    >
+    <p></p>
+    <input [disabled]="myForm.invalid" type="submit" name="" value="CREATE">
+
+  </form>
+</div>

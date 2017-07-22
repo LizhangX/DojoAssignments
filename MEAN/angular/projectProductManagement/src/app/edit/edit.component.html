@@ -1,0 +1,36 @@
+<div>
+  <h2>Edit Product</h2>
+  <form (submit)='onSubmit()' #myForm='ngForm'>
+    <label>Title: </label>
+    <input 
+    type="text" 
+    name="title"
+    required
+    minlength="4"
+    [(ngModel)]="Product.title"
+    #title='ngModel'
+    >
+    <span *ngIf="title.invalid && title.touched">Title is required, minimun of 4 characters.</span>
+    <p></p>
+    <label>Price: </label>
+    <input 
+    type="text" 
+    name="price"
+    required
+    [(ngModel)]="Product.price"
+    #price='ngModel'
+    >
+    <span *ngIf="price.invalid && price.touched">Price is required.</span>
+    <p></p>
+    <label>imgUrl: </label>
+    <input 
+    type="text" 
+    name="imgUrl"
+    [(ngModel)]="Product.imgUrl"
+    >
+    <p></p>
+    <button (click)='delete()' >Delete</button>
+    <input [disabled]="myForm.invalid" type="submit" name="" value="Edit">
+
+  </form>
+</div>

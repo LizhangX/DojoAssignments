@@ -1,0 +1,9 @@
+<div>
+  <div *ngFor="let product of products, let idx = index">
+    <!-- <p>{{product.imgurl}}</p> -->
+    <p>{{product.title}}</p>
+    <p>${{product.price}}</p>
+    <button><a [routerLink]="['/products/edit', idx]">Edit</a></button>
+
+    </div>
+</div>
