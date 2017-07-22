@@ -33,7 +33,8 @@ subscription: Subscription;
   }
 
   ngOnInit() {
-    this.Product = this.products[this.id];
+    this.Product = Object.assign({}, this.products[this.id])
+    // this.Product = this.products[this.id];
   }
 
   onSubmit(){
