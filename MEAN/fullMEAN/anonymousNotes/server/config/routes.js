@@ -3,10 +3,10 @@ let Notes = require('./../controllers/notes');
 
 module.exports = function(app){
     app.post('/notes', Notes.create);
-    app.get('/', Notes.show);
+    app.get('/notes', Notes.show);
 
-    // app.all('*', (res, req, next) => {
-    //     res.sendFile(path.resolve('./public/dist/index.html'));
-    // });
+    app.all('*', (res, req, next) => {
+        res.sendFile(path.resolve('./public/dist/index.html'));
+    });
 
 };

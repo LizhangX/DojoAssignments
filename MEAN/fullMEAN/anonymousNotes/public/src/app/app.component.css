@@ -1,0 +1,10 @@
+div {
+    border: 2px solid black;
+    margin: 5px;
+    padding: 5px;
+}
+
+.notes{
+    height: 200px;
+    overflow: scroll;
+}

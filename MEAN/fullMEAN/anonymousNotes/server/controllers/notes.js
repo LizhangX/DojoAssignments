@@ -9,9 +9,9 @@ class NoteController{
         });
     }
     show(req,res){
-        Note.find({}, (err, note) => {
+        Note.find({}, (err, notes) => {
             if (err) { return res.json(err); }
-            return res.json(note);
+            return res.json(notes);
         });
     }
 }
