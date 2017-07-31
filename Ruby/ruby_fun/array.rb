@@ -29,8 +29,8 @@ b = ['happy', 'smile', 'sad','mad']
 # puts a.join
 # puts b.join('-')
 
-# puts a.insert(1, 9)
-# puts b. insert(3, 'lol')
+puts a.insert(1, 9)
+puts b. insert(3, 'lol')
 
 puts %w{cat dog bear}
 
