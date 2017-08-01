@@ -16,7 +16,7 @@ class MathDojo
     end
 
     def result
-        p "#{@sum}"
+        p @sum
     end
 end
 
