@@ -10,7 +10,9 @@ class Human
     def attack(obj)
         if obj.class.ancestors.include?(Human)
             obj.health -= 3
-            p obj
+            true
+        else
+            false
         end
     end
 
