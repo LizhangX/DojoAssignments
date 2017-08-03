@@ -1,0 +1,18 @@
+player = Player.joins(:team).all.select("players.name as player_name, teams.name as team_name, teams.mascot, teams.stadium ")
+
+player = Player.includes(:team).select("players.name as player_name, teams.name as team_name, teams.mascot, teams.stadium").references(:team)
+player.each do |player|
+    puts player.name
+  puts player.team.name
+  puts player.team.mascot
+  puts player.team.stadium
+end
+
+
+player = Player.includes(:team).where("teams.name = 'Chicago Bulls'").references(:team)
+
+player = Player.joins(:team).where("teams.stadium = 'Staples Center'").select("players.name as player_name, teams.name as team_name")
+
+
+Team.includes(:players).where("players.name like 'Z%'").references(:players)
+Team.joins(:players).where("players.name like 'Z%'").select("teams.id, teams.name, teams.stadium, players.name as player_name")
