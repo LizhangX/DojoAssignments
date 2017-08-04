@@ -1,0 +1,10 @@
+Comment.create(commentable: Blog.first)
+
+Comment.create(commentable: Post.first)
+
+Comment.create(commentable: Blog.second)
+
+Comment.first.update(commentable:Blog.second)
+
+Comment.last.destroy
+
