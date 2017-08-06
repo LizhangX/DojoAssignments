@@ -1,0 +1,9 @@
+<h1>Users#edit</h1>
+<p>Find me in app/views/users/edit.html.erb</p>
+
+<form>
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <lable>Name: </lable>
+    <input type="text" name="name" value="<%= @user.name %>"/>
+    <input type="submit" value="Submit" >
+</form>
