@@ -1,0 +1,26 @@
+<%# <h1>Surveys#index</h1> %>
+<%# <p>Find me in app/views/surveys/index.html.erb</p> %>
+
+<form action="surveys" method='post'>
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <label for="">Your Name: </label>
+    <input type="text" name="survey[name]">
+    <p></p>
+    <label for="">Dojo Locations: </label>
+    <select name="survey[location]" id="">
+        <option value="Dalls">Dallas</option>
+        <option value="Mountain View">Mountain View</option>
+    </select>
+    <p></p>
+    <label for="">Favorite Language:</label>
+    <select name="survey[language]" id="">
+        <option value="Python">Python</option>
+        <option value="JavaScript">JavaScript</option>
+    </select>
+    <p></p>
+    <label for="">Comment: </label>
+    <p></p>
+    <textarea name="survey[comment]" id="" cols="40" rows="10"></textarea>
+    <p></p>
+    <input type="submit" value="Submit">
+</form>
