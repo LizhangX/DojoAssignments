@@ -1,23 +1,35 @@
 <%# <h1>Dojos#index</h1> %>
 <%# <p>Find me in app/views/dojos/index.html.erb</p> %>
+<div>
+    <h1>Listing Dojos</h1>
+    <% if flash[:success] %>
+        <p><%= flash[:success] %></p>
+    <% end %>
+    <table>
+        <thead>
+            <th>Coding Dojo Branch</th>
+            <th>Street</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Actions</th>
+        </thead>
+        <tbody>
+            <% @dojos.each do |dojo| %>
+            <tr>
+            <td><%= dojo.branch %></td>
+            <td><%= dojo.street %></td>
+            <td><%= dojo.city %></td>       
+            <td><%= dojo.state %></td> 
+            <td>
+                <a href="">Show</a>|
+                <a href="">Edit</a>|
+                <a href="">Destroy</a>
+            </td>       
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+    <a href="dojos/new">New Dojo</a>
+</div>
 
-<h1>Listing Dojos</h1>
 
-<table>
-    <thead>
-        <th>Coding Dojo Branch</th>
-        <th>Street</th>
-        <th>City</th>
-        <th>State</th>
-    </thead>
-    <tbody>
-        <% @dojos.each do |dojo| %>
-        <tr>
-          <td><%= dojo.branch %></td>
-          <td><%= dojo.street %></td>
-          <td><%= dojo.city %></td>       
-          <td><%= dojo.state %></td>        
-        </tr>
-        <% end %>
-    </tbody>
-</table>
