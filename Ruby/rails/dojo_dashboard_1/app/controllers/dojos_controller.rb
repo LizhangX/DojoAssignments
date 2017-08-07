@@ -19,6 +19,31 @@ class DojosController < ApplicationController
     end
   end
 
+  def show
+    @dojo = Dojo.find(params[:id])
+    render 'show'
+  end
+
+  def edit
+    @dojo = Dojo.find(params[:id])
+    render 'edit'
+  end
+
+  def update
+    dojo = Dojo.find(params[:id]).update(dojo_param)
+    if dojo 
+      flash[:success] = "Succuessfully updated."
+      return redirect_to '/'
+    else
+      flash[:error] = "invalid update"
+      return redirect_to "/dojos/#{params[:id]}/edit"
+    end
+  end
+
+  def destroy
+    Dojo.find(params[:id]).destroy
+    return redirect_to "/"
+  end
 
   private
     def dojo_param
