@@ -1,0 +1,46 @@
+<h1>Users#index</h1>
+<p>Find me in app/views/users/index.html.erb</p>
+
+<% content_for :div1 do %>
+    <div class="container-fluid">
+        <h1>All Users</h1>
+        <table class="table">
+            <thead>
+                <th>First Name:</th>
+                <th>Last Name:</th>
+                <th>Favorite Language:</th>
+            </thead>
+            <tbody>
+                <% @users.each do |user| %>
+                <tr>
+                    <td><%= user.first_name %></td>
+                    <td><%= user.last_name %></td>
+                    <td><%= user.favorite_language %></td>
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+<% end %>
+
+<% content_for :div2 do %>
+    <h1>New User</h1>
+    <form action="/users" method="post">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <div class="form-group">
+            <label for="">First name</label>
+            <input type="text" name="user[first_name]" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="">Last name</label>
+            <input type="text" name="user[last_name]" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="">Favorite Language</label>
+            <input type="text" name="user[favorite_language]" class='form-control'>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <p></p>
+    <button class="btn btn-secondary"><a href="/posts">All Posts</a></button>
+<% end %>

@@ -33,7 +33,7 @@ class StudentsController < ApplicationController
       flash[:success] = "Successfully updated student #{student_param[:first_name]}."
       return redirect_to "/dojos/#{params[:dojo_id]}"
     else
-      flash[:error] = "invalid update for student"
+      flash[:error] = "#{student}"
       return redirect_to "/dojos/#{params[:dojo_id]}/students/#{params[:id]}/edit"
     end
   end
