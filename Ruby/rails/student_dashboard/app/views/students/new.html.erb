@@ -1,0 +1,31 @@
+<%# <h1>Students#new</h1> %>
+<%# <p>Find me in app/views/students/new.html.erb</p> %>
+<div>
+    <% if flash[:error] %>
+      <% flash[:error].each do |item| %>
+        <p>***<%= item[0] %> <%= item[1][0] %>***</p>
+      <% end %>
+    <% end %>
+    <h1>New Student</h1>
+    <form action="/dojos/<%= @dojo.id %>/students" method="post">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <label for="">First Name: </label>
+        <input type="text" name="student[first_name]">
+        <p></p>
+        <label for="">Last Name: </label>
+        <input type="text" name="student[last_name]">
+        <p></p>
+        <label for="">Email: </label>
+        <input type="text" name="student[email]">
+        <p></p>
+        <label for="">Dojo: </label>
+        <select name="student[dojo_id]">
+            <option value="<%= @dojo.id %>"><%= @dojo.branch %></option>
+        </select>
+        <p></p>
+        <input type="submit" value="Create">
+    </form>
+    <a href="/">Home</a>
+    <a href="/dojos/<%= @dojo.id %>"><%= @dojo.branch %></a>
+
+</div>
