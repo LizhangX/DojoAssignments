@@ -16,8 +16,6 @@ Rails.application.routes.draw do
   delete 'dojos/:dojo_id/students/:id' => "students#destroy"
 
 
-
-
   post "dojos" => "dojos#create"
 
   get "dojos/new" => "dojos#new"

@@ -11,7 +11,7 @@ class StudentsController < ApplicationController
       flash[:success] = "Successfully added student #{student_param[:first_name]}"
       return redirect_to "/dojos/#{params[:dojo_id]}"
     else
-      flash[:error] = student.errors
+      flash[:error] = student.errors.full_messages
       redirect_to "/dojos/#{params[:dojo_id]}/students/new"
     end
   end
@@ -28,12 +28,15 @@ class StudentsController < ApplicationController
   end
 
   def update
-    student = Student.find(params[:id]).update(student_param)
-    if student
+    # student = Student.find(params[:id]).update(student_param)
+    student = Student.update(params[:id], student_param)
+    # p student.valid?
+    if student.valid?
       flash[:success] = "Successfully updated student #{student_param[:first_name]}."
       return redirect_to "/dojos/#{params[:dojo_id]}"
     else
-      flash[:error] = "#{student}"
+      flash[:error] = student.errors.full_messages
+      # p student.errors.full_messages
       return redirect_to "/dojos/#{params[:dojo_id]}/students/#{params[:id]}/edit"
     end
   end

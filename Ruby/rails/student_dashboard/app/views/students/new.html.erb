@@ -3,7 +3,7 @@
 <div>
     <% if flash[:error] %>
       <% flash[:error].each do |item| %>
-        <p>***<%= item[0] %> <%= item[1][0] %>***</p>
+        <p>*** <%= item %> ***</p>
       <% end %>
     <% end %>
     <h1>New Student</h1>

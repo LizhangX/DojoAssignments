@@ -3,7 +3,9 @@
 <div>
     <h1>Editing <%= @student.first_name %> <%= @student.last_name %></h1>
     <% if flash[:error] %>
-        <p><%= flash[:error] %></p>
+      <% flash[:error].each do |item| %>
+        <p>*** <%= item %> ***</p>
+      <% end %>
     <% end %>
     <form action="/dojos/<%= @dojo.id %>/students/<%= @student.id %>" method="post">
         <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
