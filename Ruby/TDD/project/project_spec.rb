@@ -8,7 +8,7 @@ RSpec.describe Project do
     end
 
     it 'has a getter and setter for name attribute' do
-     0   @project1.name = "Changed Name" # this line would fail if our class did not have a setter method
+        @project1.name = "Changed Name" # this line would fail if our class did not have a setter method
         expect(@project1.name).to eq("Changed Name") # this line would fail if we did not have a getter or if it did not change the name successfully in the previous line.
     end 
 
