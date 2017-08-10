@@ -9,6 +9,7 @@ class BankAccount
         @saving = 0
         @total = 0
         @interest = 0.01
+        @@bank_accounts += 1
     end
 
     # def checking_balance
