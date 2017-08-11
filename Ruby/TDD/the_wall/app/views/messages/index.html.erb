@@ -2,3 +2,25 @@
 <p>Find me in app/views/messages/index.html.erb</p>
 
 <p><%= flash[:welcome] %></p>
+
+<% if flash[:errors] %>
+  <% flash[:errors].each do |e| %>
+    <p id="error"><%= e %></p>  
+  <% end %>
+<% end %>
+
+<button><a href="/logout" data-method="delete">Logout</a></button>
+
+<form action = "/messages" method = "post">
+  <input type = 'hidden' name = "authenticity_token" value = "<%=form_authenticity_token%>">
+  <label>Post A Message</label>
+  <textarea name = "message[message]" id = "message_message"></textarea>
+  <input type = 'hidden' name = "message[user_id]" value="<%= session[:user_id] %>">
+  <input type = "submit" value ="Post a Message">
+</form>
+
+<% @messages.each do |message| %>
+    <p><%= message.user.username %></p>
+    <p><%= message.created_at %></p>
+    <p><%= message.message %></p>
+<% end %>
