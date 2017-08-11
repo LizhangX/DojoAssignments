@@ -1,0 +1,17 @@
+<h1>Sessions#new</h1>
+<p>Find me in app/views/sessions/new.html.erb</p>
+
+<% if flash[:errors] %>
+  <p><%= flash[:errors] %></p>
+<% end %>
+
+<form action="/sessions" method="post">
+    <p>Log In</p>
+    <label for="Email">Email:</label>
+    <input type="text" id="Email" name="email">
+    <p></p>
+    <label for="Password"></label>
+    <input type="text" name="password" id="Password">
+    <p></p>
+    <input type="submit" value="Log In">
+</form>
