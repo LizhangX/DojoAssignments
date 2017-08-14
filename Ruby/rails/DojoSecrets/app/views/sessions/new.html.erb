@@ -6,12 +6,13 @@
 <% end %>
 
 <form action="/sessions" method="post">
-    <p>Log In</p>
-    <label for="Email">Email:</label>
-    <input type="text" id="Email" name="email">
-    <p></p>
-    <label for="Password">Password:</label>
-    <input type="text" name="password" id="Password">
-    <p></p>
-    <input type="submit" value="Log In">
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+  <p>Log In</p>
+  <label for="Email">Email:</label>
+  <input type="text" id="Email" name="email">
+  <p></p>
+  <label for="Password">Password:</label>
+  <input type="text" name="password" id="Password">
+  <p></p>
+  <input type="submit" value="Log In">
 </form>

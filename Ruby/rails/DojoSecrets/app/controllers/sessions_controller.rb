@@ -4,10 +4,10 @@ def new
 end
 def create
     # Log User In
-    @user = User.find_by_email(params[:email]).try(:authenticate,params[:password])
-    if @user
-        session[:user_id] = @user.id
-        return redirect_to "/users/#{@user.id}"
+    user = User.find_by_email(params[:email]).try(:authenticate,params[:password])
+    if user
+        session[:user_id] = user.id
+        return redirect_to "/users/#{user.id}"
     else
         flash[:errors] = 'Invalid Combination'
         return redirect_to :back
