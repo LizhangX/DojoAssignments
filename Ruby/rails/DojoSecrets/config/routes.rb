@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   get 'secrets/index'
-
   # resources :users
   get 'users/new'
   post 'users' => 'users#create'
@@ -16,6 +15,8 @@ Rails.application.routes.draw do
   delete 'sessions/:id' => 'sessions#destroy'
   post 'users/:id/secrets' => 'secrets#create'
   delete 'users/:user_id/secrets/:id' => 'secrets#destroy'
+  post 'users/:user_id/secrets/:id/likes' => 'likes#create'
+  delete 'users/:user_id/secrets/:id/likes' => 'likes#destroy'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
