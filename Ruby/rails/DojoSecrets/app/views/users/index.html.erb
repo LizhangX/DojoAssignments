@@ -5,7 +5,7 @@
 <% @secrets.each do |secret| %>
   <% if current_user == secret.user %>
     <p><%= secret.content %></p>
-    <form action="/users/<%=@user.id%>/secrets/<%= secret.id %>" method="post">
+    <form action="/secrets/<%= secret.id %>" method="post">
         <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
         <input type="hidden" name="_method" value="delete">
         <input type="submit" value="Delete Secret">

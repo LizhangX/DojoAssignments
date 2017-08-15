@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get 'users/:id/edit' => 'users#edit'
   delete 'sessions/:id' => 'sessions#destroy'
   post 'users/:id/secrets' => 'secrets#create'
-  delete 'users/:user_id/secrets/:id' => 'secrets#destroy'
+  delete 'secrets/:id' => 'secrets#destroy'
   post 'users/:user_id/secrets/:id/likes' => 'likes#create'
   delete 'users/:user_id/secrets/:id/likes' => 'likes#destroy'
 
