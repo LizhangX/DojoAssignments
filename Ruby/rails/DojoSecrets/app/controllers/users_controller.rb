@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   def index
     @user = User.find(params[:id])
+    @secrets = Secret.all 
+    # p @user  
+    # p @secrets
   end
 
   def new
