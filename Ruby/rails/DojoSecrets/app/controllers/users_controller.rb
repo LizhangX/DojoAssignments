@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :require_login, only: [:new, :create]
-
+  before_action :auth, only: [:show, :edit, :update, :destroy]
   def index
     @user = User.find(params[:id])
     @secrets = Secret.all 
@@ -25,7 +25,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = current_user
   end
 
   def update
@@ -48,5 +48,11 @@ class UsersController < ApplicationController
   private
     def user_param
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    end
+
+    def auth
+      # p params[:id].to_s
+      # p current_user.id
+      return redirect_to "/users/#{current_user.id}" unless params[:id] == current_user.id.to_s
     end
 end

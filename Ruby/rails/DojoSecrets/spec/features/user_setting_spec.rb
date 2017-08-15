@@ -9,6 +9,7 @@ feature 'User Settings features ' do
       visit "/users/#{@user.id}/edit"
     end
     scenario "visit users edit page" do
+      expect(page).to have_content('Email')
       expect(page).to have_field('Email')
       expect(page).to have_field('Name')
     end
