@@ -1,0 +1,2 @@
+class AttendingEventsController < ApplicationController
+end
