@@ -13,10 +13,21 @@ class UsersController < ApplicationController
     end
   end
 
+  def update
+    user = User.update(params[:id], user_params)
+    if user.valid?
+      return redirect_to '/events'
+    else
+      flash[:errors] = user.erorrs.full_messages
+      return redirect_to :back
+    end
+  end
+
   def new
   end
 
   def edit
+    @user = current_user
   end
 
   private

@@ -2,9 +2,20 @@ Rails.application.routes.draw do
   root 'users#index'
   post '/users' => 'users#create'
   post '/sessions' => 'sessions#create'
-  
+  get '/users/:id/edit' => 'users#edit'
+  patch '/users/:id' => 'users#update'
+  delete '/sessions/:id' => 'sessions#destroy'  
   
   get '/events' => 'events#index'
+  post '/events' => 'events#create'
+  get '/events/:id' => 'events#show'
+  get '/events/:id/edit' => 'events#edit'
+  delete '/events/:id' => 'events#destroy'
+
+  post '/events/:id/discussions' => 'discussions#create'
+
+  post '/events/:id/attending_events' => 'attending_events#create'
+  delete '/events/:id/attending_events' => 'attending_events#destroy'
   # get 'events/edit'
 
   # get 'events/index'

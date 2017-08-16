@@ -4,10 +4,12 @@ class Event < ActiveRecord::Base
   has_many :attending_events, dependent: :destroy
   has_many :users, through: :attending_events
 
-  validate :name, :date, :city, :state, presence: true
-  validate :date_cannot_be_in_the_past
+  validates :name, :date, :city, :state, presence: true
+  validates_date :date, on_or_after: :today
 
-  def date_cannot_be_in_the_past
-    errors.add(:date, "can't be in the past") if !date.blank? and date < Date.today
-  end
+  # validate :date_cannot_be_in_the_past
+
+  # def date_cannot_be_in_the_past
+  #   errors.add(:date, "can't be in the past") if !date.blank? and date < Date.today
+  # end
 end
