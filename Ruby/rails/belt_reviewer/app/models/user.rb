@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   has_many :events_joined, through: :attending_events, source: :event
   
   validates :first_name, :last_name, :email, :city, :state, presence: true
-  validates :password, length: { minimum: 8 }
+  validates :password, on: :create, length: { minimum: 8 }
   validates :email, uniqueness: true, format: { with: /(\A([a-z]*\s*)*\<*([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\>*\Z)/i }
   before_save :downcase_email
 

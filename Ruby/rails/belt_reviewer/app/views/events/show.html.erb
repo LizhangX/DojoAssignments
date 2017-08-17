@@ -1,13 +1,13 @@
 <div class="container-fluid">
     <div class="navbar row">
         <div class="col-7"></div>
-        <a class="nav-link btn btn-secondary col-3" href="/events">Events Dashboard</a>
+        <a class="nav-link btn btn-info col-3" href="/events">Events Dashboard</a>
 
-        <% if current_user %>
-            <form class="col-2" action="/sessions/<%=current_user.id%>" method="post">
+        <% if @user %>
+            <form class="col-2" action="/sessions/<%=@user.id%>" method="post">
                 <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
                 <input type="hidden" name="_method" value="delete">
-                <input type="submit" class="btn btn-secondary" value="Log Out">
+                <input type="submit" class="btn btn-info" value="Log Out">
             </form>
         <% end %> 
     </div>
@@ -17,7 +17,7 @@
             <p>Host: <%= @event.user.first_name %></p>
             <p>Date: <%= @event.date %></p>
             <p>Location: <%= @event.city %>, <%= @event.state %></p>
-            <p>People who are joining the event:</p>
+            <p>People who are joining the event: <%= @event.users.count %></p>
 
             <table class="table table-hover table-sm table-striped table-bordered">
                 <thead>
@@ -28,7 +28,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <% @event.users.each do |user| %>
+                    <% @users.each do |user| %>
                       <tr>
                         <td><%= user.first_name %></td>
                         <td><%= user.city %></td>

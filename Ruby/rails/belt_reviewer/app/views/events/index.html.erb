@@ -1,17 +1,17 @@
 <div class="container-fluid">
     <div class="navbar row">
         <div class="col-8"></div>
-        <a class="nav-link btn btn-secondary col-2" href="/users/<%= current_user.id %>/edit">Edit My Profile</a>
-        <% if current_user %>
-            <form class="col-2"action="/sessions/<%=current_user.id%>" method="post">
+        <a class="nav-link btn btn-info col-2" href="/users/<%= @user.id %>/edit">Edit My Profile</a>
+        <% if @user %>
+            <form class="col-2"action="/sessions/<%=@user.id%>" method="post">
                 <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
                 <input type="hidden" name="_method" value="delete">
-                <input type="submit" class="btn btn-secondary" value="Log Out">
+                <input type="submit" class="btn btn-info" value="Log Out">
             </form>
         <% end %> 
     </div>
     <div>
-        <h1>Welcome! <%= current_user.first_name %></h1>
+        <h1>Welcome! <%= @user.first_name %></h1>
         <h5>Here are some of the events at your state:</h5>
         <table class="table table-hover table-sm table-striped table-bordered">
             <thead>
@@ -31,8 +31,8 @@
                     <td><%= event.city %></td>
                     <td><%= event.user.first_name %></td>
                     <td>
-                        <% if event.user.id != current_user.id  %>
-                            <% if event.users.include? current_user%>
+                        <% if event.user.id != @user.id  %>
+                            <% if event.users.include? @user%>
                                 Joining <a href="/events/<%= event.id %>/attending_events" data-method="delete">Cancel</a>
                             <% else %>
                                 <a href="/events/<%= event.id %>/attending_events" data-method="post">Join</a>
@@ -69,8 +69,8 @@
                     <td><%= event.state %></td>
                     <td><%= event.user.first_name %></td>
                     <td>
-                        <% if event.user.id != current_user.id  %>
-                            <% if event.users.include? current_user%>
+                        <% if event.user.id != @user.id  %>
+                            <% if event.users.include? @user%>
                                 Joining <a href="/events/<%= event.id %>/attending_events" data-method="delete">Cancel</a>
                             <% else %>
                                 <a href="/events/<%= event.id %>/attending_events" data-method="post">Join</a>

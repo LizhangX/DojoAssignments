@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  skip_before_action :require_login, only: [:create, :index]
+  before_action :auth, except: [:create, :index]
   def index
   end
 
@@ -18,12 +20,9 @@ class UsersController < ApplicationController
     if user.valid?
       return redirect_to '/events'
     else
-      flash[:errors] = user.erorrs.full_messages
+      flash[:errors] = user.errors.full_messages
       return redirect_to :back
     end
-  end
-
-  def new
   end
 
   def edit
@@ -33,5 +32,9 @@ class UsersController < ApplicationController
   private
     def user_params
       params.require(:user).permit(:first_name, :last_name, :email, :password, :city, :state, :password_confirmation)
+    end
+
+    def auth
+      return redirect_to '/events' unless session[:user_id].to_s == params[:id]
     end
 end
