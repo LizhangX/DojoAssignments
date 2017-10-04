@@ -4,10 +4,10 @@ from django.db import models
 import re
 import bcrypt
 # Create your models here.
+EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
 class UserManager(models.Manager):
     def register(self, form_data):
         errors = []
-        EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
         if len(form_data['fname']) == 0:
             errors.append('First name required.')
         if len(form_data['lname']) == 0:
